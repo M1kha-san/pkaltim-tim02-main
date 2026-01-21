@@ -11,7 +11,7 @@ require_once __DIR__ . '/config/config.php';
 
 // Simple Router
 $request = $_SERVER['REQUEST_URI'];
-$basePath = '/toyourkaltim';
+$basePath = '/pkaltim-tim02-main';
 $path = str_replace($basePath, '', parse_url($request, PHP_URL_PATH));
 
 // Remove trailing slash
