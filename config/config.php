@@ -11,7 +11,7 @@ define('DB_PASS', '');
 define('DB_NAME', 'wisata_alam_kaltim');
 
 // Application Configuration
-define('BASE_URL', 'http://localhost/toyourkaltim/');
+define('BASE_URL', 'http://localhost/pkaltim-tim02-main/');
 define('APP_NAME', 'Wisata Alam Kaltim');
 define('APP_VERSION', '1.0.0');
 
