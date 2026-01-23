@@ -8,9 +8,9 @@ include VIEW_PATH . '/layouts/header.php';
 <section class="relative h-screen min-h-[700px] flex flex-col justify-center items-center text-white overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-        <!-- High quality nature image (Karst Sangkulirang or similar vibes) -->
-        <img src="https://images.unsplash.com/photo-1533552755457-5b471cb2ab11?q=80&w=2670&auto=format&fit=crop" 
-             alt="Wisata Alam Kaltim" 
+        <!-- Hutan Orang Utan Kalimantan -->
+        <img src="https://images.unsplash.com/photo-1540206395-68808572332f?q=80&w=2670&auto=format&fit=crop" 
+             alt="Wisata Alam Kaltim - Hutan Orang Utan" 
              class="w-full h-full object-cover scale-105"
              data-aos="zoom-out" data-aos-duration="3000">
         <!-- Gradient Overlay matching the palette -->
@@ -61,22 +61,70 @@ include VIEW_PATH . '/layouts/header.php';
 </section>
 
 <!-- Destinasi Pilihan (Swiper Carousel) -->
-<section class="py-24 bg-custom-light overflow-hidden relative" id="destinasi-populer">
+<section class="py-24 bg-white relative overflow-hidden" id="destinasi-populer">
+    <!-- Subtle Pattern Background -->
+    <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(#1D546D 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+    
     <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-                <span class="text-custom-secondary font-bold uppercase tracking-widest text-xs mb-2 block">Pilihan Terbaik</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-custom-primary">Jelajahi Surga Borneo</h2>
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div data-aos="fade-right">
+                <span class="inline-block px-3 py-1 rounded-full border border-custom-secondary/30 text-custom-secondary text-xs font-bold tracking-[0.2em] uppercase mb-4">
+                    Destinasi Pilihan
+                </span>
+                <h2 class="text-4xl md:text-5xl font-display font-medium text-custom-primary leading-tight">
+                    Temukan Petualangan<br><i class="font-serif italic text-custom-secondary">Impianmu</i> Disini
+                </h2>
             </div>
             
-            <!-- Custom Navigation -->
-            <div class="flex space-x-4 mt-8 md:mt-0">
-                <button class="swiper-button-prev-custom w-14 h-14 rounded-full border border-custom-primary/20 flex items-center justify-center text-custom-primary hover:bg-custom-primary hover:text-white transition duration-300">
-                    <i class="fas fa-arrow-left text-lg"></i>
-                </button>
-                <button class="swiper-button-next-custom w-14 h-14 rounded-full border border-custom-primary/20 flex items-center justify-center text-custom-primary hover:bg-custom-primary hover:text-white transition duration-300">
-                    <i class="fas fa-arrow-right text-lg"></i>
-                </button>
+            <div class="hidden md:block mb-2" data-aos="fade-left">
+                <p class="text-gray-500 max-w-md text-right leading-relaxed text-sm">
+                    Kami mengkurasi destinasi terbaik di Kalimantan Timur, dari puncak gunung yang berkabut hingga kedalaman laut yang mempesona.
+                </p>
+            </div>
+        </div>
+
+        <!-- Stylish Filter Bar -->
+        <div class="relative mb-14" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-6">
+                
+                <!-- Filter Group -->
+                <div class="bg-white p-2 rounded-full shadow-lg shadow-gray-200/50 border border-gray-100 inline-flex flex-wrap justify-center gap-2 mx-auto xl:mx-0">
+                    <button class="filter-btn active px-8 py-3.5 rounded-full text-base font-bold transition-all duration-300 bg-custom-secondary text-white shadow-md flex items-center gap-2.5" data-filter="all">
+                        <i class="fas fa-globe"></i>
+                        <span>Semua</span>
+                    </button>
+                    <button class="filter-btn px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 text-gray-500 hover:text-custom-secondary hover:bg-gray-50 flex items-center gap-2.5" data-filter="gunung">
+                        <i class="fas fa-mountain"></i>
+                        <span>Gunung</span>
+                    </button>
+                    <button class="filter-btn px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 text-gray-500 hover:text-custom-secondary hover:bg-gray-50 flex items-center gap-2.5" data-filter="hutan">
+                        <i class="fas fa-tree"></i>
+                        <span>Hutan</span>
+                    </button>
+                    <button class="filter-btn px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 text-gray-500 hover:text-custom-secondary hover:bg-gray-50 flex items-center gap-2.5" data-filter="sungai">
+                        <i class="fas fa-water"></i>
+                        <span>Sungai</span>
+                    </button>
+                    <button class="filter-btn px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 text-gray-500 hover:text-custom-secondary hover:bg-gray-50 flex items-center gap-2.5" data-filter="pantai">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>Pantai</span>
+                    </button>
+                    <button class="filter-btn px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 text-gray-500 hover:text-custom-secondary hover:bg-gray-50 flex items-center gap-2.5" data-filter="air terjun">
+                        <i class="fas fa-wind"></i>
+                        <span>Air Terjun</span>
+                    </button>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex gap-4">
+                    <button class="swiper-button-prev-custom w-14 h-14 rounded-full bg-white text-custom-primary border border-gray-100 shadow-md hover:shadow-xl hover:bg-custom-primary hover:text-white transition-all duration-300 flex items-center justify-center group">
+                        <i class="fas fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
+                    </button>
+                    <button class="swiper-button-next-custom w-14 h-14 rounded-full bg-white text-custom-primary border border-gray-100 shadow-md hover:shadow-xl hover:bg-custom-primary hover:text-white transition-all duration-300 flex items-center justify-center group">
+                        <i class="fas fa-arrow-right text-lg group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -101,7 +149,7 @@ include VIEW_PATH . '/layouts/header.php';
                             <!-- Content Overlay -->
                             <div class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <div class="flex items-center space-x-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                    <span class="px-3 py-1 rounded-full bg-custom-accent/90 backdrop-blur text-xs font-bold uppercase tracking-wider">
+                                    <span class="category-badge px-3 py-1 rounded-full bg-custom-accent/90 backdrop-blur text-xs font-bold uppercase tracking-wider">
                                         <?= $destinasi['kategori_nama'] ?>
                                     </span>
                                     <span class="flex items-center text-sm">
@@ -138,8 +186,8 @@ include VIEW_PATH . '/layouts/header.php';
         <div class="flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2 order-2 md:order-1 relative">
                 <div class="relative rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition duration-500">
-                    <img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=2574&auto=format&fit=crop" 
-                         alt="Derawan Island" class="w-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2670&auto=format&fit=crop" 
+                         alt="Pantai Derawan Kalimantan Timur" class="w-full object-cover">
                 </div>
                 <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-custom-accent rounded-full blur-2xl -z-10"></div>
             </div>
@@ -221,15 +269,11 @@ include VIEW_PATH . '/layouts/header.php';
 <!-- Footer Spacer & Script for Carousel -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Swiper
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
-            // pagination: {
-            //     el: ".swiper-pagination",
-            //     clickable: true,
-            //     dynamicBullets: true,
-            // },
             navigation: {
                 nextEl: ".swiper-button-next-custom",
                 prevEl: ".swiper-button-prev-custom",
@@ -249,6 +293,60 @@ include VIEW_PATH . '/layouts/header.php';
                 disableOnInteraction: false,
             }
         });
+
+        // Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const destinasiCards = document.querySelectorAll('.swiper-slide');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter').toLowerCase();
+                
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-custom-secondary', 'text-white', 'shadow-md', 'font-bold');
+                    btn.classList.add('text-gray-500', 'hover:text-custom-secondary', 'hover:bg-gray-50', 'font-medium');
+                });
+                
+                this.classList.add('active', 'bg-custom-secondary', 'text-white', 'shadow-md', 'font-bold');
+                this.classList.remove('text-gray-500', 'hover:text-custom-secondary', 'hover:bg-gray-50', 'font-medium');
+
+                // Filter cards
+                destinasiCards.forEach(card => {
+                    const cardCategory = card.querySelector('.category-badge') ? 
+                                       card.querySelector('.category-badge').textContent.toLowerCase().trim() : '';
+                    
+                    if (filterValue === 'all' || cardCategory.includes(filterValue)) {
+                        card.style.display = 'block';
+                        // Trigger animation
+                        card.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update swiper after filtering
+                setTimeout(() => {
+                    swiper.update();
+                }, 100);
+            });
+        });
+
+        // Add fadeInUp animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     });
 </script>
 
