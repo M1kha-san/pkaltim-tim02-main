@@ -36,21 +36,21 @@ include VIEW_PATH . '/layouts/header.php';
                         value="<?= isset($searchKeyword) ? htmlspecialchars($searchKeyword) : '' ?>"
                         class="input-field pr-12"
                     >
-                    <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-600">
+                    <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-custom-secondary">
                         <i class="fas fa-search text-xl"></i>
                     </button>
                 </form>
             </div>
             
             <!-- Category Filter -->
-            <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0">
+            <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0">   
                 <a href="<?= BASE_URL ?>destinasi" 
-                   class="badge <?= !isset($currentKategori) ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700' ?> whitespace-nowrap">
+                   class="badge <?= !isset($currentKategori) ? 'bg-custom-secondary text-white' : 'bg-gray-200 text-gray-700' ?> whitespace-nowrap">
                     Semua
                 </a>
                 <?php foreach ($kategoris as $kat): ?>
                 <a href="<?= BASE_URL ?>destinasi?kategori=<?= $kat['id'] ?>" 
-                   class="badge <?= isset($currentKategori) && $currentKategori == $kat['id'] ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700' ?> whitespace-nowrap">
+                   class="badge <?= isset($currentKategori) && $currentKategori == $kat['id'] ? 'bg-custom-secondary text-white' : 'bg-gray-200 text-gray-700' ?> whitespace-nowrap">
                     <?= htmlspecialchars($kat['nama']) ?>
                 </a>
                 <?php endforeach; ?>

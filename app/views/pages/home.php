@@ -79,7 +79,7 @@ include VIEW_PATH . '/layouts/header.php';
             
             <div class="hidden md:block mb-2" data-aos="fade-left">
                 <p class="text-gray-500 max-w-md text-right leading-relaxed text-sm">
-                    Kami mengkurasi destinasi terbaik di Kalimantan Timur, dari puncak gunung yang berkabut hingga kedalaman laut yang mempesona.
+                    Kami memberikan rekomendasi destinasi terbaik di Kalimantan Timur, dari puncak gunung yang berkabut hingga kedalaman laut yang mempesona.
                 </p>
             </div>
         </div>
@@ -189,20 +189,20 @@ include VIEW_PATH . '/layouts/header.php';
     <div class="container mx-auto px-6 relative z-10">
         <div class="flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2 order-2 md:order-1 relative">
-                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition duration-500">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2670&auto=format&fit=crop" 
+                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl hover:rotate-0 transition duration-500">
+                    <img src="https://i.ibb.co/dw8vJQ4R/Surga-Wisata-Pulau-Derawan-Kalimantan-Timur.jpg" 
                          alt="Pantai Derawan Kalimantan Timur" class="w-full object-cover">
                 </div>
                 <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-custom-accent rounded-full blur-2xl -z-10"></div>
             </div>
             
             <div class="md:w-1/2 order-1 md:order-2" data-aos="fade-left">
-                <span class="text-custom-accent font-bold uppercase tracking-widest text-xs mb-4 block">Tentang Kami</span>
+                <span class="text-custom-accent font-bold uppercase tracking-widest text-xs mb-4 block">Tentang Wisata</span>
                 <h2 class="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">
                     Menjelajahi Jantung <br><span class="text-custom-accent">Kalimantan</span>
                 </h2>
                 <p class="text-gray-300 text-lg mb-8 leading-relaxed font-light">
-                    Kami berdedikasi untuk memperkenalkan keajaiban alam Kalimantan Timur kepada dunia. Dari kedalaman hutan hujan yang menyimpan ribuan spesies langka hingga keindahan bawah laut Kepulauan Derawan yang mempesona.
+                    Nikmati keindahan alam Kaltim Etam yang menakjubkan. Dari kedalaman hutan hujan yang menyimpan ribuan spesies langka hingga keindahan bawah laut Kepulauan Derawan yang mempesona.
                 </p>
                 
                 <div class="grid grid-cols-3 gap-8 border-t border-white/10 pt-8">
@@ -212,12 +212,12 @@ include VIEW_PATH . '/layouts/header.php';
                     </div>
                     <div>
                         <div class="text-4xl font-light text-white mb-2">100%</div>
-                        <div class="text-xs tracking-widest text-custom-accent uppercase">Alam Asli</div>
+                        <div class="text-xs tracking-widest text-custom-accent uppercase">Wisata Asli</div>
                     </div>
-                    <div>
+                    <!-- <div>
                         <div class="text-4xl font-light text-white mb-2">24h</div>
                         <div class="text-xs tracking-widest text-custom-accent uppercase">Bantuan</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -234,8 +234,8 @@ include VIEW_PATH . '/layouts/header.php';
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-[600px]">
-            <div class="relative rounded-3xl overflow-hidden group h-full" data-aos="fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="relative rounded-3xl overflow-hidden group h-[280px]" data-aos="fade-up">
                 <img src="https://i.ibb.co.com/rLJ5BgL/danau-labuan-cermin.jpg" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Labuan Cermin">
                 <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                     <p class="text-white font-bold text-xl">Danau Labuan Cermin</p>
@@ -243,22 +243,22 @@ include VIEW_PATH . '/layouts/header.php';
                 </div>
             </div>
             
-            <div class="flex flex-col gap-8 h-full md:col-span-2">
-                <div class="relative rounded-3xl overflow-hidden group h-1/2" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex flex-col gap-8 md:col-span-2">
+                <div class="relative rounded-3xl overflow-hidden group h-[280px]" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://i.ibb.co.com/M5WMSw4c/mahakam.jpg"  class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Sungai Mahakam">
                      <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                         <p class="text-white font-bold text-xl">Sungai Mahakam</p>
                         <p class="text-custom-accent text-sm">Samarinda</p>
                     </div>
                 </div>
-                <div class="flex gap-8 h-1/2">
-                     <div class="relative rounded-3xl overflow-hidden group w-1/2" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex gap-8">
+                     <div class="relative rounded-3xl overflow-hidden group w-1/2 h-[280px]" data-aos="fade-up" data-aos-delay="200">
                         <img src="https://i.ibb.co.com/vFbjZwS/Foto-utama-Orangutan.jpg" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Orangutan">
                          <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/80 to-transparent">
                             <p class="text-white font-bold text-lg">Orangutan</p>
                         </div>
                     </div>
-                     <div class="relative rounded-3xl overflow-hidden group w-1/2" data-aos="fade-up" data-aos-delay="300">
+                     <div class="relative rounded-3xl overflow-hidden group w-1/2 h-[280px]" data-aos="fade-up" data-aos-delay="300">
                         <img src="https://i.ibb.co.com/7d6WRQqP/1-IMG-2794-Kawasan-wisata-alam-Bukit-Bangkirai-terletak-kurang-lebih-58-kilometer-dari-Kota-Balikpa.jpg" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Bukit Bangkirai">
                          <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/80 to-transparent">
                             <p class="text-white font-bold text-lg">Bukit Bangkirai</p>
