@@ -64,7 +64,7 @@ include VIEW_PATH . '/layouts/header.php';
                 src="<?= BASE_URL ?>public/images/destinations/<?= $destinasi['foto_utama'] ?>" 
                 alt="<?= htmlspecialchars($destinasi['nama']) ?>"
                 class="w-full h-full object-cover hover:scale-105 transition duration-1000"
-                onerror="this.src='https://via.placeholder.com/1200x600/1d546d/ffffff?text=<?= urlencode($destinasi['nama']) ?>'"
+                onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&h=600&fit=crop'"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
@@ -214,7 +214,7 @@ include VIEW_PATH . '/layouts/header.php';
                             src="<?= BASE_URL ?>public/images/destinations/<?= $rel['foto_utama'] ?>" 
                             alt="<?= htmlspecialchars($rel['nama']) ?>"
                             class="w-full h-full object-cover transition duration-700 transform group-hover:scale-110"
-                            onerror="this.src='https://via.placeholder.com/400x600/1d546d/ffffff?text=<?= urlencode($rel['nama']) ?>'"
+                            onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400&h=600&fit=crop'"
                         >
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                         

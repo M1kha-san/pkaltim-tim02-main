@@ -21,34 +21,32 @@ if ($path === '') {
 }
 
 // Routing Logic
-switch ($path) {
-    case '/':
-    case '/home':
-        require_once APP_PATH . '/controllers/HomeController.php';
-        $controller = new HomeController();
-        $controller->index();
-        break;
-        
-    case '/destinasi':
-        require_once APP_PATH . '/controllers/DestinasiController.php';
-        $controller = new DestinasiController();
-        $controller->index();
-        break;
-        
-    case (preg_match('/^\/destinasi\/(\d+)$/', $path, $matches) ? true : false):
-        require_once APP_PATH . '/controllers/DestinasiController.php';
-        $controller = new DestinasiController();
-        $controller->detail($matches[1]);
-        break;
-        
-    case '/artikel':
-        require_once APP_PATH . '/controllers/ArtikelController.php';
-        $controller = new ArtikelController();
-        $controller->index();
-        break;
-        
-    default:
-        http_response_code(404);
-        echo "404 - Page Not Found";
-        break;
+// Home
+if ($path === '/' || $path === '/home') {
+    require_once APP_PATH . '/controllers/HomeController.php';
+    $controller = new HomeController();
+    $controller->index();
+}
+// Destinasi List
+elseif ($path === '/destinasi') {
+    require_once APP_PATH . '/controllers/DestinasiController.php';
+    $controller = new DestinasiController();
+    $controller->index();
+}
+// Destinasi Detail
+elseif (preg_match('/^\/destinasi\/(\d+)$/', $path, $matches)) {
+    require_once APP_PATH . '/controllers/DestinasiController.php';
+    $controller = new DestinasiController();
+    $controller->detail($matches[1]);
+}
+// Artikel
+elseif ($path === '/artikel') {
+    require_once APP_PATH . '/controllers/ArtikelController.php';
+    $controller = new ArtikelController();
+    $controller->index();
+}
+// 404 Not Found
+else {
+    http_response_code(404);
+    echo "404 - Page Not Found";
 }

@@ -62,7 +62,7 @@
             
             <!-- Copyright -->
             <div class="border-t border-custom-secondary/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-                <p>&copy; <?= date('Y') ?> Explore Kaltim. All rights reserved.</p>
+                <p>&copy; <?= date('Y') ?> Kelompok 02. All rights reserved.</p>
                 <div class="mt-4 md:mt-0 flex space-x-6">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Service</a>

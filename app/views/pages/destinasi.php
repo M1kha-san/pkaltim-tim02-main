@@ -4,10 +4,21 @@ include VIEW_PATH . '/layouts/header.php';
 ?>
 
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
-    <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">Destinasi Wisata Alam</h1>
-        <p class="text-xl">Temukan destinasi wisata alam terbaik di Kalimantan Timur</p>
+<section class="relative text-white py-24 overflow-hidden">
+    <!-- Background Image: Pulau Beras Basah -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2670&auto=format&fit=crop" 
+             alt="Pulau Beras Basah - Berau" 
+             class="w-full h-full object-cover"
+             data-aos="zoom-out" data-aos-duration="2000">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-custom-primary/70 via-custom-primary/50 to-custom-primary/70"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 drop-shadow-2xl">Destinasi Wisata Alam</h1>
+        <p class="text-xl text-gray-100 drop-shadow-lg">Temukan destinasi wisata alam terbaik di Kalimantan Timur</p>
     </div>
 </section>
 
@@ -66,7 +77,7 @@ include VIEW_PATH . '/layouts/header.php';
                             src="<?= BASE_URL ?>public/images/destinations/<?= $dest['foto_utama'] ?>" 
                             alt="<?= htmlspecialchars($dest['nama']) ?>"
                             class="w-full h-full object-cover"
-                            onerror="this.src='https://via.placeholder.com/300x200/10b981/ffffff?text=<?= urlencode(substr($dest['nama'], 0, 20)) ?>'"
+                            onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=300&h=200&fit=crop'"
                         >
                         <div class="absolute top-3 right-3">
                             <span class="badge-green text-xs">

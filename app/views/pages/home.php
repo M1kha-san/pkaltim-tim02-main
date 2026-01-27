@@ -114,6 +114,10 @@ include VIEW_PATH . '/layouts/header.php';
                         <i class="fas fa-wind"></i>
                         <span>Air Terjun</span>
                     </button>
+                    <button class="filter-btn px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 text-gray-500 hover:text-custom-secondary hover:bg-gray-50 flex items-center gap-2.5" data-filter="danau">
+                        <i class="fas fa-water"></i>
+                        <span>Danau</span>
+                    </button>
                 </div>
 
                 <!-- Navigation Controls -->
@@ -140,7 +144,7 @@ include VIEW_PATH . '/layouts/header.php';
                                 src="<?= BASE_URL ?>public/images/destinations/<?= $destinasi['foto_utama'] ?>" 
                                 alt="<?= htmlspecialchars($destinasi['nama']) ?>"
                                 class="w-full h-full object-cover transition duration-700 transform group-hover:scale-110"
-                                onerror="this.src='https://via.placeholder.com/400x600/1d546d/ffffff?text=<?= urlencode($destinasi['nama']) ?>'"
+                                onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400&h=600&fit=crop&crop=entropy'"
                             >
                             
                             <!-- Overlay Gradient -->
