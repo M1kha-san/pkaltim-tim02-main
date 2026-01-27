@@ -236,7 +236,7 @@ include VIEW_PATH . '/layouts/header.php';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-[600px]">
             <div class="relative rounded-3xl overflow-hidden group h-full" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1596401057633-565652b5e6b7?q=80&w=2673&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Labuan Cermin">
+                <img src="https://i.ibb.co.com/rLJ5BgL/danau-labuan-cermin.jpg" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Labuan Cermin">
                 <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                     <p class="text-white font-bold text-xl">Danau Labuan Cermin</p>
                     <p class="text-custom-accent text-sm">Berau</p>
@@ -245,7 +245,7 @@ include VIEW_PATH . '/layouts/header.php';
             
             <div class="flex flex-col gap-8 h-full md:col-span-2">
                 <div class="relative rounded-3xl overflow-hidden group h-1/2" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1590635185966-41f2389d5384?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Sungai Mahakam">
+                    <img src="https://i.ibb.co.com/M5WMSw4c/mahakam.jpg"  class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Sungai Mahakam">
                      <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                         <p class="text-white font-bold text-xl">Sungai Mahakam</p>
                         <p class="text-custom-accent text-sm">Samarinda</p>
@@ -253,15 +253,15 @@ include VIEW_PATH . '/layouts/header.php';
                 </div>
                 <div class="flex gap-8 h-1/2">
                      <div class="relative rounded-3xl overflow-hidden group w-1/2" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1518182170546-0766be6fec1d?q=80&w=2622&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Orangutan">
+                        <img src="https://i.ibb.co.com/vFbjZwS/Foto-utama-Orangutan.jpg" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Orangutan">
                          <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/80 to-transparent">
                             <p class="text-white font-bold text-lg">Orangutan</p>
                         </div>
                     </div>
                      <div class="relative rounded-3xl overflow-hidden group w-1/2" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1592345279419-95a17ae0878f?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Bukit Bangkirai">
+                        <img src="https://i.ibb.co.com/7d6WRQqP/1-IMG-2794-Kawasan-wisata-alam-Bukit-Bangkirai-terletak-kurang-lebih-58-kilometer-dari-Kota-Balikpa.jpg" class="w-full h-full object-cover transition duration-700 transform group-hover:scale-105" alt="Bukit Bangkirai">
                          <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/80 to-transparent">
-                            <p class="text-white font-bold text-lg">Canopy Bridge</p>
+                            <p class="text-white font-bold text-lg">Bukit Bangkirai</p>
                         </div>
                     </div>
                 </div>
