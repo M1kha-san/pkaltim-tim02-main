@@ -75,17 +75,25 @@
     let lastScrollY = window.scrollY;
     let ticking = false;
     
+    // Detect if on homepage
+    const isHomePage = window.location.pathname === '<?= BASE_URL ?>' || 
+                       window.location.pathname === '<?= BASE_URL ?>home' ||
+                       window.location.pathname.endsWith('/pkaltim-tim02-main/') ||
+                       window.location.pathname.endsWith('/pkaltim-tim02-main');
+    
     function updateNavbar() {
         const scrollY = window.scrollY;
         
-        if (scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(6, 30, 41, 0.85)';
+        // Always show solid background on non-home pages
+        if (!isHomePage || scrollY > 50) {
+            navbar.style.backgroundColor = 'rgba(6, 30, 41, 0.95)';
             navbar.style.backdropFilter = 'blur(20px)';
             navbar.style.borderBottom = '1px solid rgba(95, 149, 152, 0.1)';
             navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
             navContainer.style.paddingTop = '1rem';
             navContainer.style.paddingBottom = '1rem';
         } else {
+            // Transparent only on homepage at top
             navbar.style.backgroundColor = 'transparent';
             navbar.style.backdropFilter = 'none';
             navbar.style.borderBottom = 'none';
