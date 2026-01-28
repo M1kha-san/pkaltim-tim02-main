@@ -133,11 +133,11 @@ $flash = Auth::getFlash();
     <div class="login-container">
         <!-- Header -->
         <div class="login-header">
-            <div class="flex items-center justify-center space-x-3 mb-4">
+            <!-- <div class="flex items-center justify-center space-x-3 mb-4">
                 <div class="w-12 h-12 rounded-xl bg-[#5F9598]/20 flex items-center justify-center">
                     <i class="fas fa-leaf text-2xl text-[#5F9598]"></i>
                 </div>
-            </div>
+            </div> -->
             <h1 class="text-white text-2xl font-bold">Explore<span class="text-[#5F9598]">Kaltim</span></h1>
             <p class="text-gray-300 text-sm mt-2">Panel Administrasi</p>
         </div>
