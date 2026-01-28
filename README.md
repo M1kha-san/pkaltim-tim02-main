@@ -6,7 +6,7 @@ Sebuah website katalog destinasi wisata alam di Kalimantan Timur. Project ini di
 
 Kalimantan Timur punya banyak destinasi wisata alam yang menakjubkan, tapi informasinya masih tersebar dan susah diakses. ExploreKaltim hadir sebagai solusi - sebuah platform terpusat yang menampilkan berbagai destinasi wisata lengkap dengan detail informasi, foto, lokasi, dan tips berkunjung.
 
-Website ini dibangun dari nol menggunakan PHP native dengan pola MVC (tanpa framework), MySQL untuk database, dan Tailwind CSS untuk tampilan. Kenapa native PHP? Karena kami ingin punya kontrol penuh atas setiap aspek aplikasi dan memahami fundamental web development secara mendalam.
+Website ini dibangun menggunakan PHP native dengan pola MVC, MySQL untuk database, dan Tailwind CSS untuk tampilan. Kenapa native PHP? Karena dalam diskusi proyek tim sepakat untuk memilih php native sebagai backedn dan ingin punya kontrol penuh atas setiap aspek aplikasi.
 
 ## Fitur Utama
 
