@@ -18,7 +18,7 @@
                     Beranda
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
-                <a href="#tentang" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
+                <a href="<?= BASE_URL ?>#tentang" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
                     Tentang
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
@@ -26,7 +26,7 @@
                     Destinasi
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
-                <a href="#galeri" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
+                <a href="<?= BASE_URL ?>#galeri" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
                     Galeri
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
@@ -46,13 +46,13 @@
         <a href="<?= BASE_URL ?>" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
             Beranda
         </a>
-        <a href="#tentang" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
+        <a href="<?= BASE_URL ?>#tentang" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
             Tentang
         </a>
         <a href="<?= BASE_URL ?>destinasi" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
             Destinasi
         </a>
-        <a href="#galeri" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
+        <a href="<?= BASE_URL ?>#galeri" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
             Galeri
         </a>
     </div>

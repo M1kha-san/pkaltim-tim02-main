@@ -10,13 +10,13 @@ class HomeController {
     private $artikelModel;
     
     public function __construct() {
-        require_once APP_PATH . '/models/Destinasi.php';
-        require_once APP_PATH . '/models/Kategori.php';
-        require_once APP_PATH . '/models/Artikel.php';
+        require_once APP_PATH . '/models/DestinasiDB.php';
+        require_once APP_PATH . '/models/KategoriDB.php';
+        require_once APP_PATH . '/models/ArtikelDB.php';
         
-        $this->destinasiModel = new Destinasi();
-        $this->kategoriModel = new Kategori();
-        $this->artikelModel = new Artikel();
+        $this->destinasiModel = new DestinasiDB();
+        $this->kategoriModel = new KategoriDB();
+        $this->artikelModel = new ArtikelDB();
     }
     
     public function index() {

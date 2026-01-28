@@ -9,11 +9,11 @@ class DestinasiController {
     private $kategoriModel;
     
     public function __construct() {
-        require_once APP_PATH . '/models/Destinasi.php';
-        require_once APP_PATH . '/models/Kategori.php';
+        require_once APP_PATH . '/models/DestinasiDB.php';
+        require_once APP_PATH . '/models/KategoriDB.php';
         
-        $this->destinasiModel = new Destinasi();
-        $this->kategoriModel = new Kategori();
+        $this->destinasiModel = new DestinasiDB();
+        $this->kategoriModel = new KategoriDB();
     }
     
     public function index() {
@@ -41,7 +41,7 @@ class DestinasiController {
     }
     
     public function detail($id) {
-        $destinasi = $this->destinasiModel->getWithDetails($id);
+        $destinasi = $this->destinasiModel->findById($id);
         
         if (!$destinasi) {
             http_response_code(404);

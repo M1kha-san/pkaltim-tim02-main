@@ -8,8 +8,8 @@ class ArtikelController {
     private $artikelModel;
     
     public function __construct() {
-        require_once APP_PATH . '/models/Artikel.php';
-        $this->artikelModel = new Artikel();
+        require_once APP_PATH . '/models/ArtikelDB.php';
+        $this->artikelModel = new ArtikelDB();
     }
     
     public function index() {

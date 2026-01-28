@@ -9,7 +9,7 @@ include VIEW_PATH . '/layouts/header.php';
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
         <!-- Hutan Orang Utan Kalimantan -->
-        <img src="https://i.ibb.co/Pvskdbd2/orang-utan-kaltim-copy.jpg" 
+        <img src="<?= BASE_URL ?>public/images/destinations/orang-utan-kaltim-copy.jpeg" 
              alt="Wisata Alam Kaltim - Hutan Orang Utan" 
              class="w-full h-full object-cover scale-105"
              data-aos="zoom-out" data-aos-duration="3000">

@@ -14,6 +14,7 @@ define('DB_NAME', 'wisata_alam_kaltim');
 define('BASE_URL', 'http://localhost/pkaltim-tim02-main/');
 define('APP_NAME', 'Wisata Alam Kaltim');
 define('APP_VERSION', '1.0.0');
+define('ENVIRONMENT', 'development'); // 'development' or 'production'
 
 // Path Configuration
 define('ROOT_PATH', dirname(__DIR__));
@@ -24,9 +25,16 @@ define('PUBLIC_PATH', ROOT_PATH . '/public');
 // Timezone
 date_default_timezone_set('Asia/Makassar');
 
-// Error Reporting (Set to 0 in production)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Error Reporting (Auto-configure based on environment)
+if (ENVIRONMENT === 'production') {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+    ini_set('error_log', ROOT_PATH . '/logs/error.log');
+} else {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
 
 // Session Configuration
 if (session_status() === PHP_SESSION_NONE) {
