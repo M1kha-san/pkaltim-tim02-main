@@ -154,7 +154,7 @@ $flash = Auth::getFlash();
             <form action="<?= BASE_URL ?>admin/login" method="POST">
                 <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
                 
-                <div class="mb-5">
+                <div class="mb-6">
                     <label class="block text-gray-700 font-medium mb-2 text-sm">Username atau Email</label>
                     <div class="input-wrapper">
                         <i class="fas fa-user input-icon"></i>
@@ -175,7 +175,7 @@ $flash = Auth::getFlash();
                 </button>
             </form>
             
-            <div class="mt-6 text-center">
+            <div class="mt-8 text-center">
                 <a href="<?= BASE_URL ?>" class="text-gray-500 hover:text-[#1D546D] text-sm transition">
                     <i class="fas fa-arrow-left mr-1"></i> Kembali ke Website
                 </a>

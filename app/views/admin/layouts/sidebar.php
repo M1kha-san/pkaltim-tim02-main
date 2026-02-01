@@ -66,6 +66,12 @@ function isActive($pattern, $path) {
                     <span class="font-medium">Kategori</span>
                 </a>
                 
+                <!-- Translations / Multi-Language -->
+                <a href="<?= BASE_URL ?>admin/translations" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition <?= isActive('/admin/translations', $path) ?>">
+                    <i class="fas fa-language w-5 text-center mr-3"></i>
+                    <span class="font-medium">Translations</span>
+                </a>
+                
                 <?php if (isset($user) && $user['role'] === 'admin'): ?>
                 <!-- Kelola Penulis (hanya admin) -->
                 <a href="<?= BASE_URL ?>admin/users" class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition <?= isActive('/admin/users', $path) ?>">

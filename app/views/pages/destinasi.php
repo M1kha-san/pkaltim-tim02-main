@@ -7,7 +7,7 @@ include VIEW_PATH . '/layouts/header.php';
 <section class="relative text-white py-24 overflow-hidden">
     <!-- Background Image: Pulau Beras Basah -->
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2670&auto=format&fit=crop" 
+        <img src="<?= BASE_URL ?>public/images/destinations/hutan-kaltim.jpeg" 
              alt="Pulau Beras Basah - Berau" 
              class="w-full h-full object-cover"
              data-aos="zoom-out" data-aos-duration="2000">
@@ -17,8 +17,8 @@ include VIEW_PATH . '/layouts/header.php';
     
     <!-- Content -->
     <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 drop-shadow-2xl">Destinasi Wisata Alam</h1>
-        <p class="text-xl text-gray-100 drop-shadow-lg">Temukan destinasi wisata alam terbaik di Kalimantan Timur</p>
+        <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 drop-shadow-2xl"><?= Language::get('dest.page_title', 'Destinasi Wisata Alam') ?></h1>
+        <p class="text-xl text-gray-100 drop-shadow-lg"><?= Language::get('dest.page_subtitle', 'Temukan destinasi wisata alam terbaik di Kalimantan Timur') ?></p>
     </div>
 </section>
 
@@ -32,7 +32,7 @@ include VIEW_PATH . '/layouts/header.php';
                     <input 
                         type="text" 
                         name="search" 
-                        placeholder="Cari destinasi..." 
+                        placeholder="<?= Language::get('dest.search_placeholder', 'Cari destinasi...') ?>" 
                         value="<?= isset($searchKeyword) ? htmlspecialchars($searchKeyword) : '' ?>"
                         class="input-field pr-12"
                     >
@@ -46,7 +46,7 @@ include VIEW_PATH . '/layouts/header.php';
             <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0">   
                 <a href="<?= BASE_URL ?>destinasi" 
                    class="badge <?= !isset($currentKategori) ? 'bg-custom-secondary text-white' : 'bg-gray-200 text-gray-700' ?> whitespace-nowrap">
-                    Semua
+                    <?= Language::get('dest.filter_all', 'Semua') ?>
                 </a>
                 <?php foreach ($kategoris as $kat): ?>
                 <a href="<?= BASE_URL ?>destinasi?kategori=<?= $kat['id'] ?>" 
@@ -65,18 +65,18 @@ include VIEW_PATH . '/layouts/header.php';
         <?php if (empty($destinasis)): ?>
             <div class="text-center py-16">
                 <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-600 mb-2">Destinasi Tidak Ditemukan</h3>
-                <p class="text-gray-500">Coba kata kunci atau filter lain</p>
+                <h3 class="text-2xl font-bold text-gray-600 mb-2"><?= Language::get('dest.not_found', 'Destinasi Tidak Ditemukan') ?></h3>
+                <p class="text-gray-500"><?= Language::get('dest.not_found_desc', 'Coba kata kunci atau filter lain') ?></p>
             </div>
         <?php else: ?>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <?php foreach ($destinasis as $dest): ?>
-                <div class="card">
+                <a href="<?= BASE_URL ?>destinasi/<?= $dest['id'] ?>" class="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                     <div class="relative h-48 overflow-hidden img-hover-zoom">
                         <img 
                             src="<?= BASE_URL ?>public/images/destinations/<?= $dest['foto_utama'] ?>" 
                             alt="<?= htmlspecialchars($dest['nama']) ?>"
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=300&h=200&fit=crop'"
                         >
                         <div class="absolute top-3 right-3">
@@ -87,7 +87,7 @@ include VIEW_PATH . '/layouts/header.php';
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-1">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-1 group-hover:text-custom-secondary transition-colors">
                             <?= htmlspecialchars($dest['nama']) ?>
                         </h3>
                         <p class="text-sm text-gray-600 mb-3 flex items-center">
@@ -95,16 +95,15 @@ include VIEW_PATH . '/layouts/header.php';
                             <?= htmlspecialchars($dest['kabupaten_nama']) ?>
                         </p>
                         <div class="flex items-center justify-between">
-                            <span class="text-green-600 font-semibold text-sm">
+                            <span class="text-custom-secondary font-semibold text-sm">
                                 <?= $dest['harga_tiket'] ?>
                             </span>
-                            <a href="<?= BASE_URL ?>destinasi/<?= $dest['id'] ?>" 
-                               class="text-green-600 hover:text-green-700 font-semibold text-sm">
-                                Detail <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
+                            <span class="text-custom-secondary group-hover:text-custom-primary font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                <?= Language::get('dest.detail_btn', 'Detail') ?> <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
-                </div>
+                </a>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>

@@ -15,21 +15,44 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="<?= BASE_URL ?>" class="nav-link text-white hover:text-custom-accent font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
-                    Beranda
+                    <?= Language::get('nav.home', 'Beranda') ?>
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
                 <a href="<?= BASE_URL ?>#tentang" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
-                    Tentang
+                    <?= Language::get('nav.about', 'Tentang') ?>
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
                 <a href="<?= BASE_URL ?>destinasi" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
-                    Destinasi
+                    <?= Language::get('nav.destinations', 'Destinasi') ?>
                     <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
                 </a>
-                <a href="<?= BASE_URL ?>#galeri" class="nav-link text-gray-300 hover:text-white font-medium text-sm uppercase tracking-wider transition-all duration-300 relative py-2">
-                    Galeri
-                    <span class="nav-underline absolute bottom-0 left-0 w-0 h-0.5 bg-custom-accent transition-all duration-300"></span>
-                </a>
+                
+                <!-- Language Switcher -->
+                <div class="relative language-switcher">
+                    <button id="langBtn" class="text-gray-300 hover:text-white font-medium transition-all duration-300 flex items-center gap-2 py-2" aria-label="Change Language">
+                        <i class="fas fa-globe text-lg"></i>
+                        <span class="uppercase text-sm"><?= Language::getCurrentLanguage() ?? 'ID' ?></span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="langDropdown" class="absolute top-full right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden opacity-0 invisible transform translate-y-2 transition-all duration-300">
+                        <form method="POST" action="<?= BASE_URL ?>language/switch">
+                            <button type="submit" name="lang" value="id" class="w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-50 transition-colors text-left <?= Language::getCurrentLanguage() === 'id' ? 'bg-custom-accent/10' : '' ?>">
+                                <span class="text-xl">🇮🇩</span>
+                                <span class="text-sm font-medium text-gray-700">Indonesia</span>
+                                <?php if (Language::getCurrentLanguage() === 'id'): ?>
+                                <i class="fas fa-check ml-auto text-custom-secondary"></i>
+                                <?php endif; ?>
+                            </button>
+                            <button type="submit" name="lang" value="en" class="w-full px-4 py-3 flex items-center gap-3 hover:bg-gray-50 transition-colors text-left <?= Language::getCurrentLanguage() === 'en' ? 'bg-custom-accent/10' : '' ?>">
+                                <span class="text-xl">🇬🇧</span>
+                                <span class="text-sm font-medium text-gray-700">English</span>
+                                <?php if (Language::getCurrentLanguage() === 'en'): ?>
+                                <i class="fas fa-check ml-auto text-custom-secondary"></i>
+                                <?php endif; ?>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
             
             <!-- Mobile Menu Button -->
@@ -44,17 +67,26 @@
 <div id="mobileMenuOverlay" class="fixed inset-0 bg-custom-primary/95 backdrop-blur-xl z-40 opacity-0 invisible transition-all duration-500 md:hidden">
     <div class="h-full flex flex-col items-center justify-center space-y-8">
         <a href="<?= BASE_URL ?>" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
-            Beranda
+            <?= Language::get('nav.home', 'Beranda') ?>
         </a>
         <a href="<?= BASE_URL ?>#tentang" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
-            Tentang
+            <?= Language::get('nav.about', 'Tentang') ?>
         </a>
         <a href="<?= BASE_URL ?>destinasi" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
-            Destinasi
+            <?= Language::get('nav.destinations', 'Destinasi') ?>
         </a>
-        <a href="<?= BASE_URL ?>#galeri" class="mobile-link text-white text-3xl font-display font-bold hover:text-custom-accent transition-all duration-300 transform translate-y-4 opacity-0">
-            Galeri
-        </a>
+        
+        <!-- Mobile Language Switcher -->
+        <div class="mobile-link transform translate-y-4 opacity-0">
+            <form method="POST" action="<?= BASE_URL ?>language/switch" class="flex items-center gap-4">
+                <button type="submit" name="lang" value="id" class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl border-2 transition-all duration-300 <?= Language::getCurrentLanguage() === 'id' ? 'border-custom-accent bg-custom-accent/20' : 'border-white/20 hover:border-white/40' ?>">
+                    🇮🇩
+                </button>
+                <button type="submit" name="lang" value="en" class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl border-2 transition-all duration-300 <?= Language::getCurrentLanguage() === 'en' ? 'border-custom-accent bg-custom-accent/20' : 'border-white/20 hover:border-white/40' ?>">
+                    🇬🇧
+                </button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -174,6 +206,37 @@
         mobileLinks.forEach(link => {
             link.style.transform = 'translateY(1rem)';
             link.style.opacity = '0';
+        });
+    }
+    
+    // Language dropdown toggle
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    
+    if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isVisible = !langDropdown.classList.contains('invisible');
+            
+            if (isVisible) {
+                langDropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
+            } else {
+                langDropdown.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                langDropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
+            }
+        });
+        
+        // Close dropdown on language change
+        langDropdown.querySelectorAll('button[type="submit"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                langDropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
+            });
         });
     }
     

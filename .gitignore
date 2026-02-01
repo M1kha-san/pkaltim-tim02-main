@@ -1,46 +1,54 @@
-# Dependencies
+# ENVIRONMENT & SENSITIVE DATA
+
+.env
+.env.*
+!.env.example
+SECURITY.md
+
+
+# DEPENDENCIES
+
 node_modules/
 vendor/
 
-# Environment & Config (IMPORTANT for production!)
-config/config.php
-.env
-.env.local
 
-# Generated CSS
+# BUILD & COMPILED FILES
+
 public/css/output.css
+dist/
+build/
 
-# User Uploads (production files, don't commit)
+
+# USER UPLOADS & MEDIA
+
+public/images/destinations/*
 !public/images/destinations/.gitkeep
 public/images/artikel/*
 !public/images/artikel/.gitkeep
 
-# Database dumps
+
+# DATABASE
+
 *.sql
-database/*.sql
+*.sqlite
+*.db
 !database/wisata_alam_kaltim.sql
 
-# Backup files
-_backup_*
+
+# BACKUPS & TEMPORARY FILES
+
+_backup_*/
 *.backup
-
-# OS Files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# IDE & Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Logs
-*.log
-logs/
-
-# Temporary files
+*.bak
+*.old
+*.tmp
 tmp/
 temp/
 cache/
+
+
+# LOGS
+
+*.log
+logs/
+error_log

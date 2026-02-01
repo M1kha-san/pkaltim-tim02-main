@@ -14,13 +14,13 @@ include VIEW_PATH . '/layouts/header.php';
                 <li class="inline-flex items-center">
                     <a href="<?= BASE_URL ?>" class="inline-flex items-center text-gray-500 hover:text-custom-secondary transition-colors">
                         <i class="fas fa-home mr-2"></i>
-                        Beranda
+                        <?= Language::get('detail.breadcrumb_home', 'Beranda') ?>
                     </a>
                 </li>
                 <li>
                     <div class="flex items-center">
                         <i class="fas fa-chevron-right text-gray-300 mx-1"></i>
-                        <a href="<?= BASE_URL ?>destinasi" class="text-gray-500 hover:text-custom-secondary transition-colors">Destinasi</a>
+                        <a href="<?= BASE_URL ?>destinasi" class="text-gray-500 hover:text-custom-secondary transition-colors"><?= Language::get('detail.breadcrumb_dest', 'Destinasi') ?></a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -74,12 +74,12 @@ include VIEW_PATH . '/layouts/header.php';
             <div class="lg:col-span-2 space-y-12">
                 <!-- Description -->
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100" data-aos="fade-up">
-                    <h2 class="text-3xl font-display font-bold text-custom-primary mb-6">Tentang Destinasi</h2>
+                    <h2 class="text-3xl font-display font-bold text-custom-primary mb-6"><?= Language::get('detail.about_title', 'Tentang Destinasi') ?></h2>
                     <div class="prose prose-lg prose-headings:font-display prose-headings:text-custom-primary prose-green max-w-none text-gray-600 leading-relaxed font-sans">
                         <p><?= nl2br(htmlspecialchars($destinasi['deskripsi'])) ?></p>
                         
                         <?php if ($destinasi['sejarah']): ?>
-                        <h3 class="mt-8 text-2xl font-bold">Sejarah & Latar Belakang</h3>
+                        <h3 class="mt-8 text-2xl font-bold"><?= Language::get('detail.history_title', 'Sejarah & Latar Belakang') ?></h3>
                         <p><?= nl2br(htmlspecialchars($destinasi['sejarah'])) ?></p>
                         <?php endif; ?>
                     </div>
@@ -88,7 +88,7 @@ include VIEW_PATH . '/layouts/header.php';
                 <!-- Facilities Grid -->
                 <?php if (!empty($fasilitas)): ?>
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100" data-aos="fade-up">
-                    <h2 class="text-2xl font-display font-bold text-custom-primary mb-8">Fasilitas Tersedia</h2>
+                    <h2 class="text-2xl font-display font-bold text-custom-primary mb-8"><?= Language::get('detail.facilities_title', 'Fasilitas Tersedia') ?></h2>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                         <?php foreach ($fasilitas as $fas): ?>
                         <div class="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-custom-light transition-colors border border-gray-100 group">
@@ -105,7 +105,7 @@ include VIEW_PATH . '/layouts/header.php';
                 <!-- Tips & Guide -->
                 <?php if (!empty($tips)): ?>
                 <div data-aos="fade-up">
-                    <h2 class="text-2xl font-display font-bold text-custom-primary mb-8">Panduan & Tips Penting</h2>
+                    <h2 class="text-2xl font-display font-bold text-custom-primary mb-8"><?= Language::get('detail.tips_title', 'Panduan & Tips Penting') ?></h2>
                     <div class="grid gap-6">
                         <?php foreach ($tips as $tip): ?>
                         <div class="flex items-start gap-5 p-6 rounded-3xl border transition-all duration-300 <?= $tip['tipe'] == 'larangan' ? 'bg-red-50/50 border-red-100 hover:shadow-red-100/50 hover:shadow-lg' : 'bg-custom-accent/10 border-custom-accent/20 hover:shadow-custom-accent/20 hover:shadow-lg' ?>">
@@ -119,6 +119,88 @@ include VIEW_PATH . '/layouts/header.php';
                         </div>
                         <?php endforeach; ?>
                     </div>
+                </div>
+                <?php endif; ?>
+
+                <!-- Interactive Map Section -->
+                <?php if ($destinasi['latitude'] && $destinasi['longitude']): ?>
+                <div data-aos="fade-up">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl font-display font-bold text-custom-primary"><?= Language::get('detail.map_title', 'Lokasi di Peta') ?></h2>
+                        <div class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-map-marker-alt text-custom-secondary"></i>
+                            <span><?= number_format($destinasi['latitude'], 4) ?>, <?= number_format($destinasi['longitude'], 4) ?></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Container -->
+                    <div class="bg-white rounded-3xl p-6 shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
+                        <div id="map-container" class="w-full h-[500px] rounded-2xl overflow-hidden shadow-inner mb-4"></div>
+                        
+                        <!-- Navigation Buttons -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="https://www.google.com/maps?q=<?= $destinasi['latitude'] ?>,<?= $destinasi['longitude'] ?>" 
+                               target="_blank"
+                               class="py-4 rounded-xl bg-blue-500 text-white font-bold hover:bg-blue-600 transition-colors flex items-center justify-center gap-3 shadow-lg hover:shadow-xl">
+                                <i class="fab fa-google text-xl"></i>
+                                <?= Language::get('detail.open_gmaps', 'Buka di Google Maps') ?>
+                            </a>
+                            <a href="https://waze.com/ul?ll=<?= $destinasi['latitude'] ?>,<?= $destinasi['longitude'] ?>&navigate=yes" 
+                               target="_blank"
+                               class="py-4 rounded-xl bg-cyan-500 text-white font-bold hover:bg-cyan-600 transition-colors flex items-center justify-center gap-3 shadow-lg hover:shadow-xl">
+                                <i class="fab fa-waze text-xl"></i>
+                                <?= Language::get('detail.open_waze', 'Buka di Waze') ?>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map JavaScript -->
+                    <script>
+                        // Initialize Leaflet Map
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const lat = <?= $destinasi['latitude'] ?>;
+                            const lng = <?= $destinasi['longitude'] ?>;
+                            const destinasiName = '<?= addslashes($destinasi['nama']) ?>';
+
+                            // Create map
+                            const map = L.map('map-container', {
+                                center: [lat, lng],
+                                zoom: 13,
+                                scrollWheelZoom: false,
+                                zoomControl: true
+                            });
+
+                            // Add tile layer (OpenStreetMap)
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                                maxZoom: 18
+                            }).addTo(map);
+
+                            // Custom marker icon
+                            const customIcon = L.icon({
+                                iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            });
+
+                            // Add marker
+                            const marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
+                            
+                            // Add popup
+                            marker.bindPopup('<div class="text-center p-2"><strong class="text-custom-primary">' + destinasiName + '</strong><br><span class="text-sm text-gray-600">Klik untuk navigasi</span></div>');
+                            
+                            // Open popup on load
+                            marker.openPopup();
+
+                            // Enable scroll zoom when clicked
+                            map.on('click', function() {
+                                map.scrollWheelZoom.enable();
+                            });
+                        });
+                    </script>
                 </div>
                 <?php endif; ?>
             </div>

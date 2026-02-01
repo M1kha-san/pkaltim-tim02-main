@@ -4,9 +4,20 @@
  * Sistem Informasi Wisata Alam Kaltim
  */
 
+// Load Composer Autoloader & Environment Variables
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Load .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // Load Configuration
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/config/database.php';
+
+// Load Language Helper
+require_once __DIR__ . '/app/helpers/Language.php';
+Language::init();
 
 // Simple Router
 $request = $_SERVER['REQUEST_URI'];
@@ -161,6 +172,42 @@ elseif (preg_match('/^\/admin\/users\/delete\/(\d+)$/', $path, $matches) && $_SE
     $controller = new AdminUsersController();
     $controller->delete($matches[1]);
 }
+// Admin Translations List
+elseif ($path === '/admin/translations') {
+    require_once APP_PATH . '/controllers/AdminTranslationController.php';
+    $controller = new AdminTranslationController();
+    $controller->index();
+}
+// Admin Translations Create Form
+elseif ($path === '/admin/translations/create') {
+    require_once APP_PATH . '/controllers/AdminTranslationController.php';
+    $controller = new AdminTranslationController();
+    $controller->create();
+}
+// Admin Translations Store
+elseif ($path === '/admin/translations/store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once APP_PATH . '/controllers/AdminTranslationController.php';
+    $controller = new AdminTranslationController();
+    $controller->store();
+}
+// Admin Translations Edit Form
+elseif (preg_match('/^\/admin\/translations\/edit\/(\d+)$/', $path, $matches)) {
+    require_once APP_PATH . '/controllers/AdminTranslationController.php';
+    $controller = new AdminTranslationController();
+    $controller->edit($matches[1]);
+}
+// Admin Translations Update
+elseif (preg_match('/^\/admin\/translations\/update\/(\d+)$/', $path, $matches) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once APP_PATH . '/controllers/AdminTranslationController.php';
+    $controller = new AdminTranslationController();
+    $controller->update($matches[1]);
+}
+// Admin Translations Delete
+elseif (preg_match('/^\/admin\/translations\/delete\/(\d+)$/', $path, $matches) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once APP_PATH . '/controllers/AdminTranslationController.php';
+    $controller = new AdminTranslationController();
+    $controller->delete($matches[1]);
+}
 
 // ==========================================
 // PUBLIC ROUTES
@@ -184,11 +231,27 @@ elseif (preg_match('/^\/destinasi\/(\d+)$/', $path, $matches)) {
     $controller = new DestinasiController();
     $controller->detail($matches[1]);
 }
+// Galeri (DISABLED - fitur tambahan untuk nanti)
+// elseif ($path === '/galeri') {
+//     require_once APP_PATH . '/controllers/GaleriController.php';
+//     $controller = new GaleriController();
+//     $controller->index();
+// }
 // Artikel
 elseif ($path === '/artikel') {
     require_once APP_PATH . '/controllers/ArtikelController.php';
     $controller = new ArtikelController();
     $controller->index();
+}
+// Language Switcher
+elseif ($path === '/language/switch' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $lang = isset($_POST['lang']) ? $_POST['lang'] : 'id';
+    Language::setLanguage($lang);
+    
+    // Redirect back to previous page
+    $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : BASE_URL;
+    header('Location: ' . $referer);
+    exit;
 }
 // 404 Not Found
 else {

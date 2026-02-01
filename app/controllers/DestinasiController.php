@@ -56,6 +56,11 @@ class DestinasiController {
         $fasilitas = $this->destinasiModel->getFasilitas($id);
         $tips = $this->destinasiModel->getTips($id);
         
+        // Get gallery photos
+        require_once APP_PATH . '/models/Galeri.php';
+        $galeriModel = new Galeri();
+        $galeri = $galeriModel->getByDestinasi($id);
+        
         // Get related destinations (same category)
         $relatedDestinasi = $this->destinasiModel->getByKategori($destinasi['kategori_id'], 4);
         
@@ -63,6 +68,7 @@ class DestinasiController {
             'destinasi' => $destinasi,
             'fasilitas' => $fasilitas,
             'tips' => $tips,
+            'galeri' => $galeri,
             'relatedDestinasi' => $relatedDestinasi
         ];
         

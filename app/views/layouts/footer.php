@@ -73,5 +73,22 @@
     
     <!-- JavaScript -->
     <script src="<?= BASE_URL ?>public/js/main.js"></script>
+    
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+    <script>
+        // Initialize GLightbox for gallery
+        if (typeof GLightbox !== 'undefined') {
+            const lightbox = GLightbox({
+                selector: '.glightbox',
+                touchNavigation: true,
+                loop: true,
+                autoplayVideos: true,
+                zoomable: true,
+                draggable: true,
+                slideEffect: 'zoom'
+            });
+        }
+    </script>
 </body>
 </html>
