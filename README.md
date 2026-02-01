@@ -29,7 +29,7 @@ Project ini dibangun dengan pendekatan **MVC Pattern** menggunakan PHP native se
 
 ### Untuk Admin
 
-- **📊 Dashboard Analytics** - Overview statistik destinasi, kategori, dan user
+- **📊 Dashboard Analytics** - Overview destinasi, kategori, dan user
 - **✏️ Manajemen Destinasi** - CRUD lengkap untuk data destinasi
 - **👥 Manajemen User** - Kelola akun admin dengan role-based access
 - **🖼️ Upload Gambar** - Upload foto destinasi langsung dari panel
